@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GingR — Datenschutz / Privacy</title>
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --ink: #1C1B18;
+    --muted: #6E6A61;
+    --rule: #E4E1DA;
+    --accent: #AD5A08;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131311;
+      --surface: #1D1C19;
+      --ink: #F2F0EB;
+      --muted: #A29D92;
+      --rule: #33302A;
+      --accent: #F0942E;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 6rem; }
+  h1 { font-size: 2rem; line-height: 1.15; letter-spacing: -.02em; margin: 0 0 .5rem; }
+  h2 {
+    font-size: 1.3rem; letter-spacing: -.01em; margin: 3rem 0 .75rem;
+    padding-top: 1.5rem; border-top: 1px solid var(--rule);
+  }
+  h3 { font-size: 1.05rem; margin: 2rem 0 .5rem; }
+  p, li { margin: 0 0 1rem; }
+  ul { padding-left: 1.25rem; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: .95rem; margin-bottom: 2.5rem; }
+  .lang { display: flex; gap: 1rem; font-size: .95rem; margin-bottom: 2rem; }
+  .note {
+    background: var(--surface); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.5rem 0;
+  }
+  .note p:last-child { margin-bottom: 0; }
+  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .95rem; }
+  code { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: .1em .35em; font-size: .9em; }
+</style>
+</head>
+<body>
+<main>
+
+<div class="lang"><a href="#de">Deutsch</a> · <a href="#en">English</a></div>
+
+<h1 id="de">Datenschutz &amp; Daten</h1>
+<p class="meta">GingR · Stand: 14. August 2026</p>
+
+<p>GingR ist ein Trainingstagebuch. Diese Seite beschreibt vollständig, welche Daten
+die App verarbeitet, wo sie liegen, wer sie sehen kann und wie du sie wieder
+loswirst. Sie sagt dasselbe wie der Bildschirm <em>Datenschutz &amp; Daten</em> in der
+App — dort findest du denselben Text ohne Netzverbindung.</p>
+
+<h2>Auf diesem Gerät</h2>
+<p>Alles, was du einträgst, landet zuerst in einer Datenbank auf diesem Telefon. Die
+App funktioniert vollständig offline — nichts beim Loggen wartet auf Netz.</p>
+
+<h2>Ohne Account</h2>
+<p>Nichts verlässt das Gerät. Kein Server sieht jemals deine Workouts.</p>
+
+<h2>Mit Account</h2>
+<p>Mit der Anmeldung läuft die Synchronisierung über ein Supabase-Projekt in der EU.
+Deine Zeilen kann nur deine eigene Anmeldung lesen.</p>
+<p><strong>Synchronisiert werden:</strong> Workouts samt Sätzen, deine Übungen und
+Equipment-Varianten, Routinen, Gyms und deren Equipment, Körpereinträge mit Gewicht
+und Notiz, Importe und dein Profil.</p>
+<p><strong>Hier bleiben:</strong> deine Fotos — es reisen nur die Dateinamen, nie die
+Bilder — dazu Rekorde und Trophäen, die jedes Gerät selbst neu rechnet, und
+Geräte-Einstellungen wie der Pausenton und das Farbschema.</p>
+<p>Zur Anmeldung kannst du „Sign in with Apple“ oder Google benutzen. In beiden Fällen
+erhält GingR eine Kennung und, falls du sie freigibst, deine E-Mail-Adresse — mehr
+nicht. Das Passwort siehst nur du und der jeweilige Anbieter.</p>
+
+<h2>Was Freunde sehen</h2>
+<p>Nur solange Teilen an ist, und nur bei Leuten, mit denen du gegenseitig befreundet
+bist: dein Anzeigename, pro Training eine Zusammenfassung (Datum, Dauer, Sätze,
+Tonnage, Schwerpunkt), dein Bestwert pro Übung und pro Woche deine Einheiten,
+Tonnage, Veränderung und relative Stärke.</p>
+<p><strong>Nie:</strong> einzelne Sätze, Notizen, Gyms, Fotos — und auch nicht dein
+Körpergewicht, das nur als Verhältnis zu dem eingeht, was du hebst.</p>
+<p>Benannte Rekorde — eine Übung, eine Zahl, ein Datum — haben einen eigenen zweiten
+Schalter, standardmäßig aus.</p>
+<p>Teilen auszuschalten löscht die Kopie auf dem Server. Es versteckt sie nicht.</p>
+
+<h2>Apple Health</h2>
+<p>Die Verbindung zu Apple Health ist <strong>standardmäßig aus</strong> und wird erst
+aufgebaut, wenn du sie in der App einschaltest und iOS anschließend um Erlaubnis
+bittet.</p>
+<p><strong>GingR schreibt nach Health:</strong> abgeschlossene Workouts (Beginn, Ende,
+Dauer) samt einer geschätzten verbrauchten Energie, sofern dein Körpergewicht bekannt
+ist — ist es das nicht, wird gar keine Energie geschrieben statt einer geratenen Zahl.
+Dazu Körpergewichts-Einträge, die du in GingR anlegst.</p>
+<p><strong>GingR liest aus Health:</strong> ausschließlich dein Körpergewicht, damit du
+es nicht zweimal eintippen musst.</p>
+<p><strong>Sonst nichts.</strong> Keine Herzfrequenz, keine Schritte, kein Schlaf, keine
+Diagnosen — GingR fragt diese Berechtigungen gar nicht erst an.</p>
+<div class="note">
+  <p><strong>Löschen ist einseitig.</strong> Wenn du einen Eintrag in GingR löschst,
+  bleibt die Kopie in Apple Health bestehen. Du entfernst sie in der Health-App unter
+  <em>Durchsuchen → Körpermaße</em> bzw. <em>Training</em>.</p>
+  <p>Gesundheitsdaten werden <strong>niemals</strong> für Werbung, Marketing oder
+  Data-Mining verwendet und nicht an Dritte weitergegeben. Sie landen auch nicht in
+  Absturzberichten.</p>
+</div>
+
+<h2>Absturzberichte</h2>
+<p>Veröffentlichte Builds schicken Abstürze an Sentry: was abgestürzt ist, welche
+App-Version, welches Betriebssystem. Keine Trainingsdaten. Entwicklungs-Builds
+schicken nichts, und ein Nutzungs- oder Produkt-Tracking gibt es in der App nirgends.</p>
+
+<h2>Wer die Daten sonst noch verarbeitet</h2>
+<ul>
+  <li><strong>Supabase</strong> — Hosting von Konto und Synchronisierung, Server in der EU.
+    Nur wenn du angemeldet bist.</li>
+  <li><strong>Sentry</strong> — Absturzberichte veröffentlichter Builds.</li>
+  <li><strong>Apple</strong> bzw. <strong>Google</strong> — nur, wenn du dich über deren
+    Anmeldung anmeldest.</li>
+</ul>
+<p>Es gibt keine Werbenetzwerke, keine Analyse-SDKs und keinen Verkauf von Daten an
+irgendwen.</p>
+
+<h2>Aufbewahrung und Löschung</h2>
+<p>Daten in deinem Konto bleiben, solange das Konto besteht. Absturzberichte werden nach
+90 Tagen automatisch entfernt.</p>
+<ul>
+  <li><strong>Alles mitnehmen:</strong> Einstellungen → Export als CSV und JSON.</li>
+  <li><strong>Cloud-Kopie löschen:</strong> Account → Konto löschen. Das Gerät bleibt
+    unberührt.</li>
+  <li><strong>Gerät leeren:</strong> Einstellungen → „Alle Daten auf diesem Gerät
+    löschen“.</li>
+  <li><strong>Auf Zuruf:</strong> schreib an die Adresse unten, dann erledige ich es.</li>
+</ul>
+
+<h2>Kinder</h2>
+<p>GingR richtet sich nicht an Kinder unter 13 Jahren und erhebt wissentlich keine
+Daten von ihnen.</p>
+
+<h2>Änderungen</h2>
+<p>Ändert sich etwas Wesentliches, wird das Datum oben aktualisiert und der
+entsprechende Abschnitt in der App mitgeändert.</p>
+
+<h2>Kontakt</h2>
+<p>GingR wird von einer Einzelperson entwickelt. Fragen, Auskunft, Löschung:
+<a href="mailto:brodersen2006@gmail.com">brodersen2006@gmail.com</a></p>
+
+
+<h1 id="en" style="margin-top:5rem">Privacy &amp; data</h1>
+<p class="meta">GingR · Last updated: 14 August 2026</p>
+
+<p>GingR is a training log. This page describes in full what data the app handles,
+where it lives, who can see it and how to get rid of it. It says the same thing as the
+<em>Privacy &amp; data</em> screen inside the app, where you can read it without a
+network connection.</p>
+
+<h2>On this device</h2>
+<p>Everything you log is written to a database on this phone first. The app works
+completely offline — nothing in the logging path waits for a network.</p>
+
+<h2>Without an account</h2>
+<p>Nothing leaves the device. No server ever sees your workouts.</p>
+
+<h2>With an account</h2>
+<p>Signing in turns on sync with a Supabase project hosted in the EU. Only your own
+sign-in can read your rows.</p>
+<p><strong>Synced:</strong> workouts and their sets, your exercises and equipment
+variants, routines, gyms and their equipment, body entries with weight and note,
+imports, and your profile.</p>
+<p><strong>Stays here:</strong> your photos — only their file names travel, never the
+images — plus records and trophies, which every device recomputes for itself, and
+device settings like the rest-end sound and the theme.</p>
+<p>You can sign in with Apple or Google. In either case GingR receives an identifier
+and, if you choose to share it, your email address — nothing else. Your password is
+seen only by you and that provider.</p>
+
+<h2>What friends see</h2>
+<p>Only while sharing is on, and only for people you are mutually friends with: your
+display name, one summary per workout (date, duration, sets, tonnage, focus), your
+best per exercise, and per week your sessions, tonnage, change and relative strength.</p>
+<p><strong>Never:</strong> individual sets, notes, gyms, photos — and not your body
+weight, which enters only as a ratio to what you lift.</p>
+<p>Named records — an exercise, a number, a date — have a second switch of their own,
+off by default.</p>
+<p>Switching sharing off deletes the copy on the server. It does not hide it.</p>
+
+<h2>Apple Health</h2>
+<p>The Apple Health connection is <strong>off by default</strong> and is only
+established once you turn it on in the app and iOS then asks your permission.</p>
+<p><strong>GingR writes to Health:</strong> finished workouts (start, end, duration)
+together with an estimate of energy burned, when your body weight is known — when it is
+not, no energy figure is written at all rather than a guessed one. Plus body-weight
+entries you create in GingR.</p>
+<p><strong>GingR reads from Health:</strong> your body weight only, so you don't have
+to type it twice.</p>
+<p><strong>Nothing else.</strong> No heart rate, no steps, no sleep, no diagnoses —
+GingR does not even request those permissions.</p>
+<div class="note">
+  <p><strong>Deletion is one-way.</strong> Deleting an entry in GingR leaves the copy in
+  Apple Health in place. Remove it in the Health app under <em>Browse → Body
+  Measurements</em> or <em>Workouts</em>.</p>
+  <p>Health data is <strong>never</strong> used for advertising, marketing or data
+  mining, and is never disclosed to third parties. It also never appears in crash
+  reports.</p>
+</div>
+
+<h2>Crash reports</h2>
+<p>Released builds send crashes to Sentry: what crashed, which app version, which
+operating system. No training data. Development builds send nothing, and there is no
+usage or product tracking anywhere in the app.</p>
+
+<h2>Who else processes the data</h2>
+<ul>
+  <li><strong>Supabase</strong> — account hosting and sync, servers in the EU. Only when
+    you are signed in.</li>
+  <li><strong>Sentry</strong> — crash reports from released builds.</li>
+  <li><strong>Apple</strong> or <strong>Google</strong> — only if you sign in with them.</li>
+</ul>
+<p>There are no ad networks, no analytics SDKs, and no sale of data to anyone.</p>
+
+<h2>Retention and deletion</h2>
+<p>Data in your account is kept as long as the account exists. Crash reports are removed
+automatically after 90 days.</p>
+<ul>
+  <li><strong>Take it all with you:</strong> Settings → export as CSV and JSON.</li>
+  <li><strong>Delete the cloud copy:</strong> Account → delete account. The device is
+    left untouched.</li>
+  <li><strong>Clear the device:</strong> Settings → "Delete all data on this device".</li>
+  <li><strong>On request:</strong> write to the address below and I will do it.</li>
+</ul>
+
+<h2>Children</h2>
+<p>GingR is not directed at children under 13 and does not knowingly collect data from
+them.</p>
+
+<h2>Changes</h2>
+<p>If something material changes, the date at the top is updated and the corresponding
+section inside the app changes with it.</p>
+
+<h2>Contact</h2>
+<p>GingR is built by one person. Questions, access requests, deletion:
+<a href="mailto:brodersen2006@gmail.com">brodersen2006@gmail.com</a></p>
+
+<footer>
+  GingR · <code>com.lywebstudio.ginger</code>
+</footer>
+
+</main>
+</body>
+</html>
