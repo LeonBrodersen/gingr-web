@@ -4,61 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GingR — Datenschutz / Privacy</title>
-<style>
-  :root {
-    --bg: #FAFAF8;
-    --surface: #FFFFFF;
-    --ink: #1C1B18;
-    --muted: #6E6A61;
-    --rule: #E4E1DA;
-    --accent: #AD5A08;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #131311;
-      --surface: #1D1C19;
-      --ink: #F2F0EB;
-      --muted: #A29D92;
-      --rule: #33302A;
-      --accent: #F0942E;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    -webkit-text-size-adjust: 100%;
-  }
-  main { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 6rem; }
-  h1 { font-size: 2rem; line-height: 1.15; letter-spacing: -.02em; margin: 0 0 .5rem; }
-  h2 {
-    font-size: 1.3rem; letter-spacing: -.01em; margin: 3rem 0 .75rem;
-    padding-top: 1.5rem; border-top: 1px solid var(--rule);
-  }
-  h3 { font-size: 1.05rem; margin: 2rem 0 .5rem; }
-  p, li { margin: 0 0 1rem; }
-  ul { padding-left: 1.25rem; }
-  a { color: var(--accent); }
-  .meta { color: var(--muted); font-size: .95rem; margin-bottom: 2.5rem; }
-  .lang { display: flex; gap: 1rem; font-size: .95rem; margin-bottom: 2rem; }
-  .note {
-    background: var(--surface); border: 1px solid var(--rule);
-    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.5rem 0;
-  }
-  .note p:last-child { margin-bottom: 0; }
-  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .95rem; }
-  code { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: .1em .35em; font-size: .9em; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
 
 <div class="lang"><a href="#de">Deutsch</a> · <a href="#en">English</a></div>
+<div class="nav">
+  <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a> ·
+  <a href="konto-loeschen.html">Konto löschen</a> ·
+  <a href="impressum.html">Impressum</a>
+</div>
 
 <h1 id="de">Datenschutz &amp; Daten</h1>
-<p class="meta">GingR · Stand: 14. August 2026</p>
+<p class="meta">GingR · Stand: 8. September 2026</p>
 
 <p>GingR ist ein Trainingstagebuch. Diese Seite beschreibt vollständig, welche Daten
 die App verarbeitet, wo sie liegen, wer sie sehen kann und wie du sie wieder
@@ -90,11 +49,34 @@ nicht. Das Passwort siehst nur du und der jeweilige Anbieter.</p>
 bist: dein Anzeigename, pro Training eine Zusammenfassung (Datum, Dauer, Sätze,
 Tonnage, Schwerpunkt), dein Bestwert pro Übung und pro Woche deine Einheiten,
 Tonnage, Veränderung und relative Stärke.</p>
-<p><strong>Nie:</strong> einzelne Sätze, Notizen, Gyms, Fotos — und auch nicht dein
-Körpergewicht, das nur als Verhältnis zu dem eingeht, was du hebst.</p>
+<p>Wer eine geteilte Karte antippt, sieht die <strong>einzelnen Sätze</strong> dieses
+Trainings: Übung, Gewicht, Wiederholungen, Dauer, Seite. Bis August 2026 war das nicht so,
+und diese Seite hat es noch eine Weile danach behauptet — seit der Detailansicht reisen
+die Sätze mit.</p>
+<p><strong>Nie:</strong> Aufwärmsätze, Notizen, Gyms, Fotos, selbst angelegte Übungen — und
+auch nicht dein Körpergewicht, das nur als Verhältnis zu dem eingeht, was du hebst.</p>
 <p>Benannte Rekorde — eine Übung, eine Zahl, ein Datum — haben einen eigenen zweiten
-Schalter, standardmäßig aus.</p>
+Schalter. Beide Schalter stehen nach der ersten Anmeldung <strong>an</strong>; schaltest du
+einen aus, bleibt er aus.</p>
 <p>Teilen auszuschalten löscht die Kopie auf dem Server. Es versteckt sie nicht.</p>
+
+<h2>Kommentare, Likes und dein Bild</h2>
+<p>Unter einem geteilten Training können Freunde einen Daumen hoch lassen und
+kommentieren. Kommentare stehen auf dem Server, tragen deinen Namen und sind für alle
+sichtbar, die diese Karte sehen — also für die gemeinsamen Freunde des Trainierenden.
+Löschst du deinen Kommentar, ist er weg.</p>
+<p>Dein Profilbild wählst du selbst; es liegt beim Konto und sehen deine Freunde. Die
+Fotos, die du an ein Training hängst, sind etwas anderes — die bleiben auf dem Gerät.</p>
+<p>Beleidigendes und Anstößiges kannst du in der App melden und Personen blockieren. Was
+gemeldet wird, sehen wir uns an und entfernen es binnen 24 Stunden, wenn es gegen die
+<a href="nutzungsbedingungen.html">Nutzungsbedingungen</a> verstößt.</p>
+
+<h2>Benachrichtigungen</h2>
+<p>Erlaubst du Push-Benachrichtigungen, bekommt der Server eine Gerätekennung von Apple
+bzw. Google, um dein Telefon zu erreichen. Sie hängt am Konto, sagt nichts über dich aus
+und verschwindet, wenn du die App löschst oder die Benachrichtigungen abschaltest.
+Protokolliert wird, welche Benachrichtigung wann rausging — damit dieselbe nicht zweimal
+kommt.</p>
 
 <h2>Apple Health</h2>
 <p>Die Verbindung zu Apple Health ist <strong>standardmäßig aus</strong> und wird erst
@@ -122,13 +104,30 @@ Diagnosen — GingR fragt diese Berechtigungen gar nicht erst an.</p>
 App-Version, welches Betriebssystem. Keine Trainingsdaten. Entwicklungs-Builds
 schicken nichts, und ein Nutzungs- oder Produkt-Tracking gibt es in der App nirgends.</p>
 
+<h2>Übungsvorschläge</h2>
+<p>Lässt du dir in einer Routine Übungen vorschlagen, schickt GingR eine Anfrage an einen
+KI-Dienst von Google. Von allein passiert das nie — nur wenn du den Knopf drückst, und erst
+nachdem du einmal zugestimmt hast.</p>
+<p><strong>Geschickt wird:</strong> welche Muskelgruppen du ausgewählt hast, die dazu
+passenden Übungen aus dem Katalog und was in der Routine schon drin ist. Der Katalog ist
+für alle gleich und sagt nichts über dich aus.</p>
+<p><strong>Nicht geschickt werden:</strong> dein Trainingsverlauf, deine Gewichte, deine
+Körperdaten, dein Name, deine Notizen und selbst angelegte Übungen. Wir nutzen den
+Bezahltarif, bei dem Google zusichert, die Inhalte nicht zur Produktverbesserung zu
+verwenden. Abschalten kannst du es in den Einstellungen; dort liegt nichts von dir, es gibt
+also nichts zu löschen.</p>
+
 <h2>Wer die Daten sonst noch verarbeitet</h2>
 <ul>
   <li><strong>Supabase</strong> — Hosting von Konto und Synchronisierung, Server in der EU.
     Nur wenn du angemeldet bist.</li>
   <li><strong>Sentry</strong> — Absturzberichte veröffentlichter Builds.</li>
   <li><strong>Apple</strong> bzw. <strong>Google</strong> — nur, wenn du dich über deren
-    Anmeldung anmeldest.</li>
+    Anmeldung anmeldest, und für die Zustellung von Benachrichtigungen an dein Telefon.</li>
+  <li><strong>Google</strong> — der KI-Dienst hinter den Übungsvorschlägen, nur auf
+    Knopfdruck.</li>
+  <li><strong>Expo</strong> — liefert App-Aktualisierungen aus. Dabei fällt an, welche
+    Version ein Gerät geladen hat, nicht wer es benutzt.</li>
 </ul>
 <p>Es gibt keine Werbenetzwerke, keine Analyse-SDKs und keinen Verkauf von Daten an
 irgendwen.</p>
@@ -146,20 +145,50 @@ irgendwen.</p>
 </ul>
 
 <h2>Kinder</h2>
-<p>GingR richtet sich nicht an Kinder unter 13 Jahren und erhebt wissentlich keine
-Daten von ihnen.</p>
+<p>Ein Konto darfst du ab 16 anlegen; bist du jünger, braucht es die Zustimmung eines
+Elternteils (Art. 8 DSGVO). Ohne Konto bleibt ohnehin alles auf dem Gerät. Wissentlich
+erheben wir keine Daten von Kindern.</p>
 
 <h2>Änderungen</h2>
 <p>Ändert sich etwas Wesentliches, wird das Datum oben aktualisiert und der
 entsprechende Abschnitt in der App mitgeändert.</p>
 
-<h2>Kontakt</h2>
-<p>GingR wird von einer Einzelperson entwickelt. Fragen, Auskunft, Löschung:
-<a href="mailto:brodersen2006@gmail.com">brodersen2006@gmail.com</a></p>
+<h2>Wer verantwortlich ist</h2>
+<p>Verantwortlich im Sinne der DSGVO ist die <strong>ly-webstudio UG
+(haftungsbeschränkt)</strong>, vertreten durch Leon Brodersen. Anschrift und Registerdaten
+stehen im <a href="impressum.html">Impressum</a>. Fragen, Auskunft und Löschung gehen an
+<a href="mailto:brodersen2006@gmail.com">brodersen2006@gmail.com</a> — dieselbe Adresse,
+die in der App unter <em>Mehr → Feedback senden</em> hinterlegt ist. Einen
+Datenschutzbeauftragten gibt es nicht; das Unternehmen ist dafür zu klein.</p>
+
+<h2>Worauf sich die Verarbeitung stützt</h2>
+<ul>
+  <li><strong>Vertrag</strong> (Art. 6 Abs. 1 lit. b DSGVO) — alles, was das Konto und die
+    Synchronisierung ausmacht. Ohne diese Daten gibt es den Dienst nicht.</li>
+  <li><strong>Einwilligung</strong> (Art. 6 Abs. 1 lit. a, bei Gesundheitsdaten zusätzlich
+    Art. 9 Abs. 2 lit. a) — das Teilen mit Freunden, die Verbindung zu Apple Health und die
+    Übungsvorschläge. Alle drei schaltest du selbst ein und jederzeit wieder aus; das
+    Ausschalten wirkt für die Zukunft und löscht, was auf dem Server lag.</li>
+  <li><strong>Berechtigtes Interesse</strong> (Art. 6 Abs. 1 lit. f) — Absturzberichte, um
+    Fehler zu finden, und die Sicherheit des Dienstes.</li>
+</ul>
+<p>Trainingsdaten und Körpergewicht sind Gesundheitsdaten im Sinne von Art. 9 DSGVO. Sie
+liegen deshalb bei einem Anbieter in der EU, gehen nie an Werbenetzwerke und werden nur an
+die Menschen weitergegeben, die du selbst als Freunde bestätigt hast.</p>
+
+<h2>Deine Rechte</h2>
+<p>Du hast das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17),
+Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Zwei
+davon erledigst du ohne uns: der <strong>Export</strong> in den Einstellungen gibt dir alles
+als CSV und JSON, und <strong>Konto löschen</strong> entfernt die Cloud-Kopie sofort. Für
+alles andere genügt eine Mail; wir antworten innerhalb eines Monats.</p>
+<p>Du kannst dich außerdem bei einer Aufsichtsbehörde beschweren — zuständig ist die
+Datenschutzaufsicht des Bundeslandes, in dem die ly-webstudio UG sitzt, oder die deines
+Wohnorts.</p>
 
 
 <h1 id="en" style="margin-top:5rem">Privacy &amp; data</h1>
-<p class="meta">GingR · Last updated: 14 August 2026</p>
+<p class="meta">GingR · Last updated: 8 September 2026</p>
 
 <p>GingR is a training log. This page describes in full what data the app handles,
 where it lives, who can see it and how to get rid of it. It says the same thing as the
@@ -190,11 +219,31 @@ seen only by you and that provider.</p>
 <p>Only while sharing is on, and only for people you are mutually friends with: your
 display name, one summary per workout (date, duration, sets, tonnage, focus), your
 best per exercise, and per week your sessions, tonnage, change and relative strength.</p>
-<p><strong>Never:</strong> individual sets, notes, gyms, photos — and not your body
-weight, which enters only as a ratio to what you lift.</p>
-<p>Named records — an exercise, a number, a date — have a second switch of their own,
-off by default.</p>
+<p>Tapping a shared card opens the <strong>individual sets</strong> of that workout:
+exercise, weight, reps, duration, side. That was not true until August 2026, and this page
+kept saying so for a while afterwards — since the detail screen exists, the sets travel
+with the card.</p>
+<p><strong>Never:</strong> warm-up sets, notes, gyms, photos, exercises you created
+yourself — and not your body weight, which enters only as a ratio to what you lift.</p>
+<p>Named records — an exercise, a number, a date — have a second switch of their own. Both
+switches are <strong>on</strong> after your first sign-in; turn one off and it stays off.</p>
 <p>Switching sharing off deletes the copy on the server. It does not hide it.</p>
+
+<h2>Comments, likes and your picture</h2>
+<p>Friends can give a shared workout a thumbs up and comment on it. Comments live on the
+server, carry your name and are visible to everyone who can see that card — the mutual
+friends of whoever trained. Delete your comment and it is gone.</p>
+<p>You choose your own profile picture; it belongs to the account and your friends see it.
+The photos you attach to a workout are a different thing — those stay on the device.</p>
+<p>You can report anything offensive in the app and block the person behind it. We look at
+reports and remove what breaks the <a href="nutzungsbedingungen.html">terms of use</a>
+within 24 hours.</p>
+
+<h2>Notifications</h2>
+<p>If you allow push notifications, the server receives a device token from Apple or
+Google so it can reach your phone. It belongs to the account, says nothing about you, and
+disappears when you delete the app or switch notifications off. We log which notification
+went out when, so the same one is not sent twice.</p>
 
 <h2>Apple Health</h2>
 <p>The Apple Health connection is <strong>off by default</strong> and is only
@@ -221,12 +270,29 @@ GingR does not even request those permissions.</p>
 operating system. No training data. Development builds send nothing, and there is no
 usage or product tracking anywhere in the app.</p>
 
+<h2>Exercise suggestions</h2>
+<p>Ask a routine to suggest exercises and GingR sends a request to an AI service run by
+Google. It never happens on its own — only when you press the button, and only after you
+have agreed once.</p>
+<p><strong>Sent:</strong> which muscle groups you picked, the matching exercises from the
+catalogue, and what the routine already contains. The catalogue is the same for everyone
+and says nothing about you.</p>
+<p><strong>Not sent:</strong> your training history, your weights, your body data, your
+name, your notes, or exercises you created yourself. We use the paid tier, on which Google
+undertakes not to use the content to improve its products. You can switch the feature off
+in settings; nothing of yours is stored there, so there is nothing to delete.</p>
+
 <h2>Who else processes the data</h2>
 <ul>
   <li><strong>Supabase</strong> — account hosting and sync, servers in the EU. Only when
     you are signed in.</li>
   <li><strong>Sentry</strong> — crash reports from released builds.</li>
-  <li><strong>Apple</strong> or <strong>Google</strong> — only if you sign in with them.</li>
+  <li><strong>Apple</strong> or <strong>Google</strong> — only if you sign in with them, and
+    to deliver notifications to your phone.</li>
+  <li><strong>Google</strong> — the AI service behind the exercise suggestions, only when
+    you press the button.</li>
+  <li><strong>Expo</strong> — delivers app updates. That records which version a device
+    downloaded, not who is using it.</li>
 </ul>
 <p>There are no ad networks, no analytics SDKs, and no sale of data to anyone.</p>
 
@@ -242,12 +308,44 @@ automatically after 90 days.</p>
 </ul>
 
 <h2>Children</h2>
-<p>GingR is not directed at children under 13 and does not knowingly collect data from
-them.</p>
+<p>You may create an account from the age of 16; if you are younger, a parent has to
+consent (Art. 8 GDPR). Without an account everything stays on the device anyway. We do not
+knowingly collect data from children.</p>
 
 <h2>Changes</h2>
 <p>If something material changes, the date at the top is updated and the corresponding
 section inside the app changes with it.</p>
+
+<h2>Who is responsible</h2>
+<p>The controller under the GDPR is <strong>ly-webstudio UG (haftungsbeschränkt)</strong>,
+represented by Leon Brodersen. The address and register details are in the
+<a href="impressum.html">legal notice</a>. Questions, access requests and deletion go to
+<a href="mailto:brodersen2006@gmail.com">brodersen2006@gmail.com</a> — the same address the
+app uses under <em>More → send feedback</em>. There is no data protection officer; the
+company is too small to need one.</p>
+
+<h2>What the processing rests on</h2>
+<ul>
+  <li><strong>Contract</strong> (Art. 6(1)(b) GDPR) — everything the account and sync are
+    made of. Without that data there is no service.</li>
+  <li><strong>Consent</strong> (Art. 6(1)(a), and for health data Art. 9(2)(a)) — sharing
+    with friends, the Apple Health connection, and the exercise suggestions. You switch all
+    three on yourself and can switch them off again; doing so applies going forward and
+    deletes what was on the server.</li>
+  <li><strong>Legitimate interest</strong> (Art. 6(1)(f)) — crash reports, to find bugs,
+    and the security of the service.</li>
+</ul>
+<p>Training data and body weight are health data under Art. 9 GDPR. That is why they sit
+with a provider inside the EU, never reach ad networks, and are passed only to the people
+you have confirmed as friends yourself.</p>
+
+<h2>Your rights</h2>
+<p>You have the right of access (Art. 15), rectification (Art. 16), erasure (Art. 17),
+restriction (Art. 18), data portability (Art. 20) and objection (Art. 21). Two of them need
+nobody: <strong>Export</strong> in settings hands you everything as CSV and JSON, and
+<strong>delete account</strong> removes the cloud copy at once. For anything else an email
+is enough; we answer within one month. You may also complain to a supervisory authority —
+the one for the German state where ly-webstudio UG is based, or the one where you live.</p>
 
 <h2>Contact</h2>
 <p>GingR is built by one person. Questions, access requests, deletion:
@@ -255,6 +353,10 @@ section inside the app changes with it.</p>
 
 <footer>
   GingR · <code>com.lywebstudio.ginger</code>
+</footer>
+
+<footer>
+  <p><a href="nutzungsbedingungen.html">Nutzungsbedingungen / Terms</a> · <a href="konto-loeschen.html">Konto löschen / Delete account</a> · <a href="impressum.html">Impressum / Legal notice</a></p>
 </footer>
 
 </main>
