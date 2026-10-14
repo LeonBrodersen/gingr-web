@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>GingR · Freund hinzufügen</title>
+<meta property="og:title" content="GingR · Freund hinzufügen">
+<meta property="og:description" content="Tippen, in GingR öffnen, Freunde werden.">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* The page a friend link opens (GymApp OW-194). The code rides in the
+     fragment (#ABCD-EFGH-JKMN), which the browser never sends to a server. */
+  .code { font-size: 1.4rem; font-variant-numeric: tabular-nums; letter-spacing: .05em; margin: 0 0 1.5rem; }
+  .open {
+    display: block; text-align: center; text-decoration: none;
+    background: var(--accent); color: #fff; font-weight: 600;
+    border-radius: 12px; padding: .9rem 1.25rem; margin: 0 0 2rem; min-height: 44px;
+  }
+  .stores { display: flex; flex-wrap: wrap; gap: 1rem; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+
+<h1 id="title">Freund hinzufügen</h1>
+
+<div id="valid" hidden>
+  <p id="lead">Jemand möchte bei GingR mit dir befreundet sein. Öffne den Link in der App und tippe auf „Freunde werden“.</p>
+  <p class="code" id="code"></p>
+  <a class="open" id="open" href="#">In GingR öffnen</a>
+  <p id="noapp">Noch kein GingR? Erst installieren, anmelden, dann diesen Link nochmal öffnen.</p>
+  <div class="stores">
+    <a href="https://apps.apple.com/app/id6799707730">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.lywebstudio.ginger">Google Play</a>
+  </div>
+</div>
+
+<div id="invalid" hidden>
+  <p id="bad">Dieser Link ist unvollständig. Lass ihn dir nochmal schicken.</p>
+</div>
+
+<footer>
+  <a href="./">Datenschutz</a> · <a href="impressum.html">Impressum</a>
+</footer>
+
+</main>
+<script>
+(function () {
+  // Mirrors CODE_ALPHABET and the two lengths in GymApp src/social/invite-code.ts.
+  var ALPHABET = /^[0-9ABCDEFGHJKMNPQRSTVWXYZ]+$/;
+  var raw = decodeURIComponent(location.hash.slice(1));
+  var code = raw.trim().toUpperCase().replace(/[\s-]/g, '');
+  var ok = (code.length === 8 || code.length === 12) && ALPHABET.test(code);
+
+  var copy = {
+    de: null, // the page's own text
+    en: {
+      title: 'Add a friend',
+      lead: 'Someone wants to be your friend on GingR. Open the link in the app and tap “Become friends”.',
+      open: 'Open in GingR',
+      noapp: 'No GingR yet? Install it, sign in, then open this link again.',
+      bad: 'This link is incomplete. Ask for it again.'
+    },
+    it: {
+      title: 'Aggiungi un amico',
+      lead: 'Qualcuno vuole essere tuo amico su GingR. Apri il link nell’app e tocca “Diventiamo amici”.',
+      open: 'Apri in GingR',
+      noapp: 'Non hai ancora GingR? Installala, accedi e poi riapri questo link.',
+      bad: 'Questo link è incompleto. Fattelo rimandare.'
+    }
+  };
+  var lang = (navigator.language || 'de').slice(0, 2).toLowerCase();
+  var text = copy[lang] || (lang === 'de' ? null : copy.en);
+  if (text) {
+    document.documentElement.lang = lang in copy ? lang : 'en';
+    document.title = 'GingR · ' + text.title;
+    for (var id in text) {
+      var node = document.getElementById(id);
+      if (node) node.textContent = text[id];
+    }
+  }
+
+  if (!ok) {
+    document.getElementById('invalid').hidden = false;
+    return;
+  }
+  document.getElementById('code').textContent = code.match(/.{1,4}/g).join('-');
+  document.getElementById('open').href = 'ginger://invite/' + code;
+  document.getElementById('valid').hidden = false;
+})();
+</script>
+</body>
+</html>
