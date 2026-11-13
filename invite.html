@@ -4,19 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>GingR · Freund hinzufügen</title>
-<meta property="og:title" content="GingR · Freund hinzufügen">
-<meta property="og:description" content="Tippen, in GingR öffnen, Freunde werden.">
+<title>GingR · Einladung</title>
+<meta property="og:title" content="GingR · Einladung">
+<meta property="og:description" content="Tippen und in GingR öffnen.">
 <link rel="stylesheet" href="style.css">
 <style>
-  /* The page a friend link opens (GymApp OW-194). The code rides in the
-     fragment (#ABCD-EFGH-JKMN), which the browser never sends to a server. */
+  /* The page a friend link opens (GymApp OW-194), and a group's link since
+     OW-262: the same code length, marked with ?group. The code rides in the
+     fragment (#ABCD-EFGH-JKMN), which the browser never sends to a server.
+     The preview a chat app shows reads the title above, which cannot see the
+     query on a static page, so it names neither a friend nor a group. */
   .code { font-size: 1.4rem; font-variant-numeric: tabular-nums; letter-spacing: .05em; margin: 0 0 1.5rem; }
   .open {
     display: block; text-align: center; text-decoration: none;
     background: var(--accent); color: #fff; font-weight: 600;
-    border-radius: 12px; padding: .9rem 1.25rem; margin: 0 0 2rem; min-height: 44px;
+    border-radius: 12px; padding: .9rem 1.25rem; margin: 0 0 1rem; min-height: 44px;
   }
+  .copy {
+    font: inherit; font-weight: 600; color: var(--accent); background: none;
+    border: 1px solid var(--rule); border-radius: 12px; padding: .6rem 1.25rem;
+    min-height: 44px; margin: 0 0 2rem; cursor: pointer;
+  }
+  #stuck { color: var(--muted); }
   .stores { display: flex; flex-wrap: wrap; gap: 1rem; }
   [hidden] { display: none !important; }
 </style>
@@ -30,6 +39,8 @@
   <p id="lead">Jemand möchte bei GingR mit dir befreundet sein. Öffne den Link in der App und tippe auf „Freunde werden“.</p>
   <p class="code" id="code"></p>
   <a class="open" id="open" href="#">In GingR öffnen</a>
+  <p id="stuck">Öffnet sich GingR nicht? Kopiere den Code und füge ihn in GingR ein: Freunde → Freunde verwalten → Code eingeben.</p>
+  <button class="copy" id="copy" type="button">Code kopieren</button>
   <p id="noapp">Noch kein GingR? Erst installieren, anmelden, dann diesen Link nochmal öffnen.</p>
   <div class="stores">
     <a href="https://apps.apple.com/app/id6799707730">App Store</a>
@@ -53,13 +64,23 @@
   var raw = decodeURIComponent(location.hash.slice(1));
   var code = raw.trim().toUpperCase().replace(/[\s-]/g, '');
   var ok = (code.length === 8 || code.length === 12) && ALPHABET.test(code);
+  // A group's link (GymApp crewPageUrl, OW-262). Only the words change: the
+  // button opens the same address, and the app asks the server which it is.
+  var group = /(^|[?&])group([=&]|$)/.test(location.search.slice(1));
 
   var copy = {
-    de: null, // the page's own text
+    de: {
+      stuck: 'Öffnet sich GingR nicht? Kopiere den Code und füge ihn in GingR ein: Freunde → Freunde verwalten → Code eingeben.',
+      copy: 'Code kopieren',
+      copied: 'Kopiert'
+    },
     en: {
       title: 'Add a friend',
       lead: 'Someone wants to be your friend on GingR. Open the link in the app and tap “Become friends”.',
       open: 'Open in GingR',
+      stuck: 'GingR does not open? Copy the code and paste it in GingR: Friends → Manage friends → Enter a code.',
+      copy: 'Copy code',
+      copied: 'Copied',
       noapp: 'No GingR yet? Install it, sign in, then open this link again.',
       bad: 'This link is incomplete. Ask for it again.'
     },
@@ -67,19 +88,38 @@
       title: 'Aggiungi un amico',
       lead: 'Qualcuno vuole essere tuo amico su GingR. Apri il link nell’app e tocca “Diventiamo amici”.',
       open: 'Apri in GingR',
+      stuck: 'GingR non si apre? Copia il codice e incollalo in GingR: Amici → Gestisci amici → Inserisci un codice.',
+      copy: 'Copia codice',
+      copied: 'Copiato',
       noapp: 'Non hai ancora GingR? Installala, accedi e poi riapri questo link.',
       bad: 'Questo link è incompleto. Fattelo rimandare.'
     }
   };
-  var lang = (navigator.language || 'de').slice(0, 2).toLowerCase();
-  var text = copy[lang] || (lang === 'de' ? null : copy.en);
-  if (text) {
-    document.documentElement.lang = lang in copy ? lang : 'en';
-    document.title = 'GingR · ' + text.title;
-    for (var id in text) {
-      var node = document.getElementById(id);
-      if (node) node.textContent = text[id];
+  var groupCopy = {
+    de: {
+      title: 'Gruppe beitreten',
+      lead: 'Du bist in eine Gruppe bei GingR eingeladen. Öffne den Link in der App und tippe auf „Beitreten“.'
+    },
+    en: {
+      title: 'Join a group',
+      lead: 'You are invited to a group on GingR. Open the link in the app and tap “Join”.'
+    },
+    it: {
+      title: 'Entra nel gruppo',
+      lead: 'Hai un invito per un gruppo su GingR. Apri il link nell’app e tocca “Entra”.'
     }
+  };
+  var lang = (navigator.language || 'de').slice(0, 2).toLowerCase();
+  if (!(lang in copy)) lang = 'en';
+  var text = copy[lang];
+  if (group) {
+    for (var g in groupCopy[lang]) text[g] = groupCopy[lang][g];
+  }
+  document.documentElement.lang = lang;
+  document.title = 'GingR · ' + (text.title || document.getElementById('title').textContent);
+  for (var id in text) {
+    var node = document.getElementById(id);
+    if (node) node.textContent = text[id];
   }
 
   if (!ok) {
@@ -88,6 +128,27 @@
   }
   document.getElementById('code').textContent = code.match(/.{1,4}/g).join('-');
   document.getElementById('open').href = 'ginger://invite/' + code;
+  // A browser inside a chat app may refuse to hand ginger:// over, and then the
+  // button does nothing (Leon, 2026-11-13: the page came, the app did not). The
+  // app's code box takes the code, and a group's code there opens the group.
+  var button = document.getElementById('copy');
+  var codeNode = document.getElementById('code');
+  button.addEventListener('click', function () {
+    var done = function () { button.textContent = text.copied; };
+    var select = function () {
+      var range = document.createRange();
+      range.selectNodeContents(codeNode);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      try { if (document.execCommand('copy')) done(); } catch (e) { /* stays selected */ }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, select);
+    } else {
+      select();
+    }
+  });
   document.getElementById('valid').hidden = false;
 })();
 </script>
